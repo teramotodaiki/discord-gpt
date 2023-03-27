@@ -34,7 +34,7 @@ function VerifyDiscordRequest(clientKey) {
 app.post("/interactions", async function (req, res) {
   // Interaction type and data
   const { type, id, data } = req.body;
-  console.log(req.body);
+  console.log(JSON.stringify(req.body));
 
   /**
    * Handle verification requests
@@ -61,6 +61,7 @@ app.post("/interactions", async function (req, res) {
           content: userMessage,
         },
       ]);
+      console.log(JSON.stringify({ botMessage, userMessage }));
 
       const response = await DiscordRequest(
         `webhooks/${process.env.APP_ID}/${req.body.token}/messages/@original`,
