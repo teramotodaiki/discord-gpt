@@ -10,6 +10,10 @@ import { chat } from "./openai.js";
 
 const app = express();
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 app.use(express.json({ verify: VerifyDiscordRequest(process.env.PUBLIC_KEY) }));
 function VerifyDiscordRequest(clientKey) {
   return function (req, res, buf, encoding) {
