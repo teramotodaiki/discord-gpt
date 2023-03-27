@@ -1,10 +1,6 @@
 import "dotenv/config";
 import { DiscordRequest } from "./discord.js";
 
-Object.keys(process.env).forEach((key) => {
-  console.log(`${key}: ${typeof process.env[key]} ${process.env[key]?.length}`);
-});
-
 // Simple test command
 const TEST_COMMAND = {
   name: "chat",
