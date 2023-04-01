@@ -63,7 +63,7 @@ app.post("/interactions", async function (req, res) {
       ]);
       console.log(JSON.stringify({ botMessage, userMessage }));
 
-      const response = await DiscordRequest(
+      DiscordRequest(
         `webhooks/${process.env.APP_ID}/${req.body.token}/messages/@original`,
         {
           method: "PATCH",
@@ -71,8 +71,7 @@ app.post("/interactions", async function (req, res) {
             content: botMessage,
           },
         }
-      );
-      console.log(response.statusText);
+      ).catch((response) => console.log(response.statusText));
     }
   }
 });
