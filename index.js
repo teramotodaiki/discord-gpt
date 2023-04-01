@@ -71,7 +71,9 @@ app.post("/interactions", async function (req, res) {
             content: botMessage,
           },
         }
-      ).catch((response) => console.log(response.statusText));
+      )
+        .then(console.log)
+        .catch(console.error);
     }
   }
 });
